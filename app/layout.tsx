@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 // eslint-disable-next-line camelcase
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "@/components/navigation/navbar";
+import { Providers } from "./providers";
 
 const inter = localFont({
   src: "./fonts/InterVF.ttf",
@@ -35,7 +37,10 @@ export default function RootLayout({
       <body
         className={`${inter.className} ${spaceGrotesk.variable} antialiased`}
       >
-        {children}
+        <Providers>
+          <Navbar />
+          {children}
+        </Providers>
       </body>
     </html>
   );
